@@ -32,6 +32,7 @@
     "nav_documents": "Dokumente",
     "nav_tags": "Tags",
     "nav_users_groups": "Benutzer & Gruppen",
+    "nav_evaluations": "Auswertungen",
     "error_info": "{{ count }} {{ count > 1 ? 'neue' : 'neuer' }} Fehler",
     "logged_as": "Eingeloggt als {{ username }}",
     "nav_settings": "Einstellungen",

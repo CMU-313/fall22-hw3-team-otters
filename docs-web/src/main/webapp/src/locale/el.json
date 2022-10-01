@@ -32,6 +32,7 @@
     "nav_documents": "έγγραφα",
     "nav_tags": "Ετικέτες",
     "nav_users_groups": "Χρήστες & Ομάδες",
+    "nav_evaluations": "αξιολογήσεις",
     "error_info": "{{ count }} Νέο σφάλμα",
     "logged_as": "Σύνδεση ως {{ username }}",
     "nav_settings": "Ρυθμίσεις",
