@@ -266,6 +266,12 @@
       "message": "Tutaj dowiesz się o użytkownikach i grupach."
     }
   },
+  "evaluation": {
+    "default": {
+      "title": "Oceny",
+      "message": "Tutaj możesz wyświetlić informacje o uczniu, którego oceniasz."
+    }
+  },
   "settings": {
     "menu_personal_settings": "Ustawienia prywatności",
     "menu_user_account": "Konto użytkownika",

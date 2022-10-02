@@ -266,6 +266,12 @@
       "message": "Hier können Sie Informationen über Benutzer und Gruppen einsehen."
     }
   },
+  "evaluation": {
+    "default": {
+      "title": "Auswertungen",
+      "message": "Hier können Sie Informationen über den zu bewertenden Schüler anzeigen."
+    }
+  },
   "settings": {
     "menu_personal_settings": "Persönliche Einstellungen",
     "menu_user_account": "Benutzerkonto",

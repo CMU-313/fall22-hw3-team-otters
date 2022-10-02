@@ -235,6 +235,12 @@
       "message": "此處您可以瀏覽用戶和群組信息."
     }
   },
+  "evaluation": {
+    "default": {
+      "title": "評價",
+      "message": "在這裡，您可以查看有關您正在評估的學生的信息。"
+    }
+  },
   "settings": {
     "menu_personal_settings": "個人設置",
     "menu_user_account": "用戶帳號",

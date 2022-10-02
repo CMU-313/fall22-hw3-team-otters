@@ -266,6 +266,12 @@
       "message": "Vous pouvez consulter ici les informations sur les utilisateurs et les groupes."
     }
   },
+  "evaluation": {
+    "default": {
+      "title": "Évaluations",
+      "message": "Ici, vous pouvez voir des informations sur l'élève que vous évaluez."
+    }
+  },
   "settings": {
     "menu_personal_settings": "Paramètres personnels",
     "menu_user_account": "Compte utilisateur",

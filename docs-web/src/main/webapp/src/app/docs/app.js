@@ -417,6 +417,24 @@ angular.module('docs',
           controller: 'GroupProfile'
         }
       }
+    })
+    .state('evaluation', {
+      url: '/evaluation',
+      abstract: true,
+      views: {
+        'page': {
+          templateUrl: 'partial/docs/evaluation.html',
+          controller: 'Evaluation'
+        }
+      }
+    })
+    .state('evaluation.default', {
+      url: '',
+      views: {
+        'sub': {
+          templateUrl: 'partial/docs/evaluation.default.html'
+        }
+      }
     });
 
   // Configuring Restangular

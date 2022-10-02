@@ -266,6 +266,12 @@
       "message": "Here you can view informations about users and groups."
     }
   },
+  "evaluation": {
+    "default": {
+      "title": "αξιολογήσεις",
+      "message": "Here you can view information about the student you're evaluating."
+    }
+  },
   "settings": {
     "menu_personal_settings": "Personal settings",
     "menu_user_account": "User account",

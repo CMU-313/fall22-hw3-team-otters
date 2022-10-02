@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h1>{{ evaluation.student_name }} </h1>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="well well-3d">
+      <p> HELLO TESTING </p>
+
+      <div ng-controller="Evaluation">
+        <form ng-submit="addSkill()">
+          <p class="input-group">
+            <input type="text" ng-model="skill (1-5)" />
+            <input type="submit" value="enter" />
+          </p>
+        </form>
+        <form ng-submit="addExperience()">
+          <p class="input-group">
+            <input type="text" ng-model="experience (1-5)" />
+            <input type="submit" value="enter" />
+          </p>
+        </form>
+        <form ng-submit="addHire()">
+          <p class="input-group">
+            <input type="text" ng-model="hire (1-5)" />
+            <input type="submit" value="enter" />
+          </p>
+        </form>
+    
+        <table>
+          <tbody>
+            <tr class="pointer" ng-repeat="criteria in evaluation" ng-click="openEvaluation(evaluation)">
+              <td class="col-xs-4"> {{ criteria.skill }} </td>
+              <td class="col-xs-4"> {{ criteria.experience }} </td>
+              <td class="col-xs-4"> {{ criteria.hire }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="well-3d-background">
+        <span class="fas fa-users"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div ui-view="sub"></div>
+  </div>
+</div>
