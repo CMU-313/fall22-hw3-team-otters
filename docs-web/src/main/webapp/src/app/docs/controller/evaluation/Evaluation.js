@@ -5,20 +5,21 @@
  */
 angular.module('docs').controller('Evaluation', function(Restangular, $scope, $state) {
   // Load evaluation
-  Restangular.one('evaluation').get({
+  Restangular.one('reviewer').get({
     sort_column: 1,
     asc: true
   }).then(function(data) {
-    $scope.evaluation = data.evaluation;
+    $scope.evaluation = data.reviewer;
   });
 
   // Open a evaluation
-  $scope.openEvaluation = function(evaluation) {
-    $state.go('evaluation', { student_name: evaluation.student_name });
+  $scope.openEvaluation = function(reviewer) {
+    $state.go('reviewer', { name: reviewer.name });
   };
 
   $scope.addEvaluation = function() {
     $scope.evaluation.push({
+      'Reviewer Name': $scope.reviewer,
       'Skill': $scope.skill,
       'Experience': $scope.experience,
       'Hire': $scope.hire

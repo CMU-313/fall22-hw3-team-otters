@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>{{ evaluation.student_name }} Student Name Here </h1>
+  <h1> Student A </h1>
 </div>
 <div class="row">
   <div class="col-md-4">
@@ -7,6 +7,9 @@
 
       <div ng-controller="Evaluation">
         <form ng-submit="addEvaluation()">
+          <label for="reviewer">Reviewer Name:</label>
+          <input type="text" ng-model="reviewer"></input>
+          <br>
           <label for="skill">Skill:</label>
           <input type="range" min="1" max="5" list="tickmarks" ng-model="skill">
             <datalist id="tickmarks">
@@ -38,10 +41,11 @@
 
         <table>
           <tbody>
-            <tr class="pointer" ng-repeat="criteria in evaluation" ng-click="openEvaluation(evaluation)">
-              <td class="col-xs-4"> {{ criteria.skill }} </td>
-              <td class="col-xs-4"> {{ criteria.experience }} </td>
-              <td class="col-xs-4"> {{ criteria.hire }} </td>
+            <tr class="pointer" ng-repeat="evaluation in reviewer" ng-click="openEvaluation(reviewer)">
+              <td class="col-xs-4"> {{ evaluation.name }} </td>
+              <td class="col-xs-4"> {{ evaluation.skill }} </td>
+              <td class="col-xs-4"> {{ evaluation.experience }} </td>
+              <td class="col-xs-4"> {{ evaluation.hire }} </td>
             </tr>
           </tbody>
         </table>
