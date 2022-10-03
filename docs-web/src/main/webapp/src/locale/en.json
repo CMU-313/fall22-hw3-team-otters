@@ -268,7 +268,7 @@
   },
   "evaluation": {
     "default": {
-      "title": "αξιολογήσεις",
+      "title": "Evaluations",
       "message": "Here you can view information about the student you're evaluating."
     }
   },

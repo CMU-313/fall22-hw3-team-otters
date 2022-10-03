@@ -4,26 +4,46 @@
 <div class="row">
   <div class="col-md-4">
     <div class="well well-3d">
-      <p> HELLO TESTING </p>
 
       <div ng-controller="Evaluation">
         <form ng-submit="addSkill()">
           <p class="input-group">
-            <input type="text" ng-model="skill (1-5)" />
+            Skill: <input type="number" ng-model="skill" placeholder="1-5" />
             <input type="submit" value="enter" />
           </p>
+          <label for="skill2">Choose a skill level:</label>
+          <select ng-model="skill2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </form>
         <form ng-submit="addExperience()">
           <p class="input-group">
-            <input type="text" ng-model="experience (1-5)" />
+            Experience: <input type="number" ng-model="experience" placeholder="1-5" />
             <input type="submit" value="enter" />
           </p>
+          <label for="experience2">Choose a experience level:</label>
+          <select ng-model="experience2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </form>
         <form ng-submit="addHire()">
           <p class="input-group">
-            <input type="text" ng-model="hire (1-5)" />
+            Hire: <input type="number" ng-model="hire" placeholder="yes/no" />
             <input type="submit" value="enter" />
           </p>
+          <label for="hire2">Choose a experience level:</label>
+          <select ng-model="hire2">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
         </form>
     
         <table>
