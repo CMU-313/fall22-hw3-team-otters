@@ -1,51 +1,41 @@
 <div class="page-header">
-  <h1>{{ evaluation.student_name }} </h1>
+  <h1>{{ evaluation.student_name }} Student Name Here </h1>
 </div>
 <div class="row">
   <div class="col-md-4">
     <div class="well well-3d">
 
       <div ng-controller="Evaluation">
-        <form ng-submit="addSkill()">
-          <p class="input-group">
-            Skill: <input type="number" ng-model="skill" placeholder="1-5" />
-            <input type="submit" value="enter" />
-          </p>
-          <label for="skill2">Choose a skill level:</label>
-          <select ng-model="skill2">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
+        <form ng-submit="addEvaluation()">
+          <label for="skill">Skill:</label>
+          <input type="range" min="1" max="5" list="tickmarks" ng-model="skill">
+            <datalist id="tickmarks">
+              <option value="1" label="1"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+          </input>
+          <br>
+          <label for="experience">Experience:</label>
+          <input type="range" min="1" max="5" list="tickmarks" ng-model="experience">
+            <datalist id="tickmarks">
+              <option value="1" label="1"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+          </input>
+          <br>
+          <label for="hire">Hire:</label>
+          <input type="text" ng-model="hire" placeholder="yes/no" pattern="yes|no"/>
+          <br><br>
+          <input type="submit" value="Submit" />
         </form>
-        <form ng-submit="addExperience()">
-          <p class="input-group">
-            Experience: <input type="number" ng-model="experience" placeholder="1-5" />
-            <input type="submit" value="enter" />
-          </p>
-          <label for="experience2">Choose a experience level:</label>
-          <select ng-model="experience2">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </form>
-        <form ng-submit="addHire()">
-          <p class="input-group">
-            Hire: <input type="number" ng-model="hire" placeholder="yes/no" />
-            <input type="submit" value="enter" />
-          </p>
-          <label for="hire2">Choose a experience level:</label>
-          <select ng-model="hire2">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </form>
-    
+        <br><br>
+
         <table>
           <tbody>
             <tr class="pointer" ng-repeat="criteria in evaluation" ng-click="openEvaluation(evaluation)">
