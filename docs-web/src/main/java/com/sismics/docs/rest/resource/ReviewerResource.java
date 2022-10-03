@@ -145,7 +145,7 @@ public class ReviewerResource extends BaseResource {
         
         // Check if the reviewer exists
         ReviewerDao revDao = new ReviewerDao();
-        Reviewer rev = revDao.getActiveByUsername(name);
+        Reviewer rev = revDao.getActiveByName(name);
         if (rev == null) {
             throw new ClientException("UserNotFound", "The user does not exist");
         }
@@ -215,7 +215,7 @@ public class ReviewerResource extends BaseResource {
 
         // Check that the reviewer exists
         ReviewerDao revDao = new ReviewerDao();
-        Reviewer rev = revDao.getActiveByUsername(name);
+        Reviewer rev = revDao.getActiveByName(name);
         if (rev == null) {
             throw new ClientException("UserNotFound", "The user does not exist");
         }
@@ -257,7 +257,7 @@ public class ReviewerResource extends BaseResource {
         }
         
         ReviewerDao revDao = new ReviewerDao();
-        Reviewer rev = revDao.getActiveByUsername(name);
+        Reviewer rev = revDao.getActiveByName(name);
         if (rev == null) {
             throw new ClientException("UserNotFound", "The user does not exist");
         }

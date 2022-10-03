@@ -50,10 +50,10 @@ public class ReviewerDao {
      * @throws Exception e
      */
     public String create(Reviewer rev, String revId) throws Exception {
-        // Create the user UUID
+        // Create the reviewer UUID
         rev.setId(UUID.randomUUID().toString());
         
-        // Checks for user unicity
+        // Checks for reviewer unicity
         EntityManager em = ThreadLocalContext.get().getEntityManager();
         Query q = em.createQuery("select u from Reviewer u where u.name = :name and u.deleteDate is null");
         q.setParameter("name", rev.getName());
@@ -62,7 +62,7 @@ public class ReviewerDao {
             throw new Exception("AlreadyExistingUsername");
         }
         
-        // Create the user
+        // Create the reviewer
         em.persist(rev);
         
         // Create audit log
@@ -107,23 +107,6 @@ public class ReviewerDao {
         EntityManager em = ThreadLocalContext.get().getEntityManager();
         try {
             return em.find(Reviewer.class, id);
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
-
-    /**
-     * Gets an active reviewer by its name.
-     * 
-     * @param name Reviewer's name
-     * @return Reviewer
-     */
-    public Reviewer getActiveByUsername(String name) {
-        EntityManager em = ThreadLocalContext.get().getEntityManager();
-        try {
-            Query q = em.createQuery("select u from Reviewer u where u.name = :name and u.deleteDate is null");
-            q.setParameter("name", name);
-            return (Reviewer) q.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
