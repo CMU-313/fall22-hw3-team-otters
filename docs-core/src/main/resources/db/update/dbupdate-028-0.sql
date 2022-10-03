@@ -1,2 +1,2 @@
-create memory table T_REV (REV_ID_C varchar(36) not null, REV_NAME_C varchar(50) not null, REV_SKILLS_C varchar(3) not null, REV_EXPERIENCE_C varchar(3) not null, REV_HIRE_C varchar(1) not null, REV_DELETEDATE_D datetime)
+create memory table T_REV (REV_ID_C varchar(36) not null, REV_NAME_C varchar(50) not null, REV_SKILLS_N tinyint, REV_EXPERIENCE_N tinyint, REV_HIRE_N tinyint not null, REV_DELETEDATE_D datetime)
 update T_CONFIG set CFG_VALUE_C = '28' where CFG_ID_C = 'DB_VERSION';

@@ -242,7 +242,7 @@ public class ReviewerResource extends BaseResource {
      * @apiSuccess {Boolean} hire Applicant's hireability
      * @apiError (client) ForbiddenError Access denied
      * @apiError (client) UserNotFound The user does not exist
-     * @apiPermission reviewer
+     * @apiPermission user
      * @apiVersion 1.5.0
      *
      * @param name Name
@@ -317,6 +317,46 @@ public class ReviewerResource extends BaseResource {
         
         JsonObjectBuilder response = Json.createObjectBuilder()
                 .add("reviewers", reviewers);
+        return Response.ok().entity(response.build()).build();
+    }
+
+    /**
+     * Averages all reviews.
+     *
+     * @api {get} /reviewer/average Gets average of all reviews
+     * @apiName GetReviewerAverage
+     * @apiGroup Reviewer
+     * @apiSuccess {String} average Average label
+     * @apiSuccess {Number} skill_avg Average of all reviewers' skills scoring
+     * @apiSuccess {Number} experience_avg Average of all reviewers' experience scoring
+     * @apiSuccess {Boolean} hire Applicant's hireability based on all reviewers
+     * @apiError (client) ForbiddenError Access denied
+     * @apiPermission user
+     * @apiVersion 1.5.0
+     *
+     * @return Response
+     */
+    @GET
+    @Path("average")
+    public Response average() {
+        if (!authenticate()) {
+            throw new ForbiddenClientException();
+        }
+        
+        JsonArrayBuilder reviewers = Json.createArrayBuilder();
+        ReviewerDao revDao = new ReviewerDao();
+        int skill_avg = revDao.getAverageSkillScore();
+        int experience_avg = revDao.getAverageExperienceScore();
+        int hire = revDao.getAverageHire(); // is this number out of 0-1 or 100?, how to do bools
+        
+        reviewers.add(Json.createObjectBuilder()
+                .add("name", "Average")
+                .add("skill_score", skill_avg)
+                .add("experience_score", experience_avg)
+                .add("hire", hire));
+        
+        JsonObjectBuilder response = Json.createObjectBuilder()
+                .add("reviewers_avg", reviewers);
         return Response.ok().entity(response.build()).build();
     }
 

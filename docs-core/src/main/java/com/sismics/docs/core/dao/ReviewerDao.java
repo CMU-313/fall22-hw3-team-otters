@@ -240,4 +240,37 @@ public class ReviewerDao {
         query.setParameter("toDate", toDate.toDate());
         return ((Number) query.getSingleResult()).longValue();
     }
+
+    /**
+     * Returns the average of all the reviewers' skill scores.
+     *
+     * @return Average skill score
+     */
+    public Integer getAverageSkillScore() {
+        EntityManager em = ThreadLocalContext.get().getEntityManager();
+        Query query = em.createNativeQuery("select avg(u.REV_SKILLS_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        return ((Number) query.getSingleResult()).intValue();
+    }
+
+    /**
+     * Returns the average of all the reviewers' experience scores.
+     *
+     * @return Average experience score
+     */
+    public Integer getAverageExperienceScore() {
+        EntityManager em = ThreadLocalContext.get().getEntityManager();
+        Query query = em.createNativeQuery("select avg(u.REV_EXPERIENCE_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        return ((Number) query.getSingleResult()).intValue();
+    }
+
+    /**
+     * Returns the average of all the reviewers' hire decisions.
+     *
+     * @return Hireability based on all reviewers' decisions (as an integer value) !!!!!!
+     */
+    public Integer getAverageHire() {
+        EntityManager em = ThreadLocalContext.get().getEntityManager();
+        Query query = em.createNativeQuery("select avg(u.REV_HIRE_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        return ((Number) query.getSingleResult()).intValue();
+    }
 }

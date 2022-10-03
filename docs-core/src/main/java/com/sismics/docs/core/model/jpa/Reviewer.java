@@ -30,19 +30,19 @@ public class Reviewer implements Loggable {
     /**
      * Skills score.
      */
-    @Column(name = "REV_SKILLS_N", nullable = false)
+    @Column(name = "REV_SKILLS_N")
     private Integer skillScore;
 
     /**
      * Experience score.
      */
-    @Column(name = "REV_EXPERIENCE_N", nullable = false)
+    @Column(name = "REV_EXPERIENCE_N")
     private Integer experienceScore;
 
     /**
      * Hireable.
      */
-    @Column(name = "REV_HIRE_B", nullable = false)
+    @Column(name = "REV_HIRE_N")
     private Boolean hire;
 
     /**
