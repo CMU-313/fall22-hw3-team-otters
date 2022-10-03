@@ -17,20 +17,10 @@ angular.module('docs').controller('Evaluation', function(Restangular, $scope, $s
     $state.go('evaluation', { student_name: evaluation.student_name });
   };
 
-  $scope.addSkill = function() {
+  $scope.addEvaluation = function() {
     $scope.evaluation.push({
-      'Skill': $scope.skill
-    });
-  };
-
-  $scope.addExperience = function() {
-    $scope.evaluation.push({
-      'Experience': $scope.experience
-    });
-  };
-
-  $scope.addHire = function() {
-    $scope.evaluation.push({
+      'Skill': $scope.skill,
+      'Experience': $scope.experience,
       'Hire': $scope.hire
     });
   };
