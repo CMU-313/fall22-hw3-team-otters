@@ -182,7 +182,7 @@ public class ReviewerDao {
             parameterMap.put("name", criteria.getName());
         }
         
-        criteriaList.add("u.USE_DELETEDATE_D is null");
+        criteriaList.add("u.REV_DELETEDATE_D is null");
         
         if (!criteriaList.isEmpty()) {
             sb.append(" where ");
