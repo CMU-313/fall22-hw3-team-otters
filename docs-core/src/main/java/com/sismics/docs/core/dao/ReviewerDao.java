@@ -165,7 +165,7 @@ public class ReviewerDao {
         Map<String, Object> parameterMap = new HashMap<>();
         List<String> criteriaList = new ArrayList<>();
         
-        StringBuilder sb = new StringBuilder("select u.REV_ID_C as c0, u.REV_NAME_C as c1, u.REV_SKILLS_C as c2, u.REV_EXPERIENCE_C as c3, u.REV_HIRE_C as c4");
+        StringBuilder sb = new StringBuilder("select u.REV_ID_C as c0, u.REV_NAME_C as c1, u.REV_SKILLS_N as c2, u.REV_EXPERIENCE_N as c3, u.REV_HIRE_N as c4");
         sb.append(" from T_REV u ");
         
         // Add search criterias
