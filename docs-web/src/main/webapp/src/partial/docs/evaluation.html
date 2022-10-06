@@ -46,5 +46,26 @@
 
   <div class="col-md-8">
     <div ui-view="sub"></div>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+    <button ng-click="getAverages()">Calculate Average</button>
+    <br\><br\>
+    <table style="width:50%" id="evaluations">
+      <tr>
+        <th>Reviewer Name</th>
+        <th>Hire</th>
+        <th>Skill</th>
+        <th>Experience</th>
+      </tr>
+      <tr ng-repeat="reviewer in reviewers" ng-click="openEvaluation(reviewer)">
+        <td>{{ reviewer.name }}</td>
+        <td>{{ reviewer.skill_score }}</td>
+        <td>{{ reviewer.experience_score }}</td>
+        <td >{{ reviewer.hire }}</td>
+      </tr>
+    </table>
   </div>
 </div>
