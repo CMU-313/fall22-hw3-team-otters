@@ -203,7 +203,7 @@ public class ReviewerDao {
             revDto.setName((String) o[i++]);
             revDto.setSkillScore(((Number) o[i++]).intValue());
             revDto.setExperienceScore(((Number) o[i++]).intValue());
-            revDto.setHire(((Boolean) o[i++]).booleanValue());
+            revDto.setHire(((Number) o[i++]).intValue());
             revDtoList.add(revDto);
         }
         return revDtoList;

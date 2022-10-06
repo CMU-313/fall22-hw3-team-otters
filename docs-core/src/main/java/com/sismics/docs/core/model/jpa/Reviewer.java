@@ -43,7 +43,7 @@ public class Reviewer implements Loggable {
      * Hireable.
      */
     @Column(name = "REV_HIRE_N")
-    private Boolean hire;
+    private Integer hire;
 
     /**
      * Deletion date.
@@ -87,11 +87,11 @@ public class Reviewer implements Loggable {
         return this;
     }
 
-    public Boolean getHire() {
+    public Integer getHire() {
         return hire;
     }
 
-    public Reviewer setHire(Boolean hire) {
+    public Reviewer setHire(Integer hire) {
         this.hire = hire;
         return this;
     }

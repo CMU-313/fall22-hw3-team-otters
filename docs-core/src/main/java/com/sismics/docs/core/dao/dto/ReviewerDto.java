@@ -29,7 +29,7 @@ public class ReviewerDto {
     /**
      * Hireable.
      */
-    private Boolean hire;
+    private Integer hire;
 
     public String getId() {
         return id;
@@ -63,11 +63,11 @@ public class ReviewerDto {
         this.experienceScore = experienceScore;
     }
 
-    public Boolean getHire() {
+    public Integer getHire() {
         return hire;
     }
 
-    public void setHire(Boolean hire) {
+    public void setHire(Integer hire) {
         this.hire = hire;
     }
 
