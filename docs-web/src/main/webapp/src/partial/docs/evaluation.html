@@ -1,0 +1,61 @@
+<div class="page-header">
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="well well-3d">
+
+      <div ng-controller="Evaluation">
+        <form ng-submit="addEvaluation()">
+          <label for="reviewer">Reviewer Name: {{reviewer}}</label>
+          <div> <input type="text" ng-model="reviewer"></input> </div>
+          <br>
+          <label for="skill">Skill: {{skill}}</label>
+          <input type="range" min="1" max="5" list="tickmarks" ng-model="skill">
+            <datalist id="tickmarks">
+              <option value="1" label="1"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+          </input>
+          <br>
+          <label for="experience">Experience: {{experience}}</label>
+          <input type="range" min="1" max="5" list="tickmarks" ng-model="experience">
+            <datalist id="tickmarks">
+              <option value="1" label="1"></option>
+              <option value="2"></option>
+              <option value="3" label="3"></option>
+              <option value="4"></option>
+              <option value="5" label="5"></option>
+            </datalist>
+          </input>
+          <br>
+          <label for="hire">Hire: {{hire}}</label>
+          <div> <input type="text" ng-model="hire" placeholder="yes/no" pattern="yes|no"/> </div>
+          <input type="submit" value="Submit" style="float: right;" />
+        </form>
+        <br><br>
+      </div>
+
+      <table>
+        <tbody>
+          <tr class="pointer" ng-repeat="evaluation in reviewer" ng-click="openEvaluation(reviewer)">
+            <td class="col-xs-4"> {{ evaluation.name }} </td>
+            <td class="col-xs-4"> {{ evaluation.skill }} </td>
+            <td class="col-xs-4"> {{ evaluation.experience }} </td>
+            <td class="col-xs-4"> {{ evaluation.hire }} </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="well-3d-background">
+        <span class="fas fa-users"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div ui-view="sub"></div>
+  </div>
+</div>

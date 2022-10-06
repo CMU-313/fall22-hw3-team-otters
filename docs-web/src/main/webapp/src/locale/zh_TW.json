@@ -32,6 +32,7 @@
     "nav_documents": "文檔",
     "nav_tags": "標籤",
     "nav_users_groups": "用戶 & 群組",
+    "nav_evaluations": "評價",
     "error_info": "{{ count }} 新錯誤",
     "logged_as": "以 {{ username }}登錄",
     "nav_settings": "設置",
@@ -232,6 +233,12 @@
     "default": {
       "title": "用戶 & 群組",
       "message": "此處您可以瀏覽用戶和群組信息."
+    }
+  },
+  "evaluation": {
+    "default": {
+      "title": "評價",
+      "message": "在這裡，您可以查看有關您正在評估的學生的信息。"
     }
   },
   "settings": {

@@ -32,6 +32,7 @@
     "nav_documents": "Documents",
     "nav_tags": "Tags",
     "nav_users_groups": "Utilisateurs & Groupes",
+    "nav_evaluations": "Évaluations",
     "error_info": "{{ count }} nouvelle{{ count > 1 ? 's' : '' }} erreur{{ count > 1 ? 's' : '' }}",
     "logged_as": "Connecté en tant que {{ username }}",
     "nav_settings": "Paramètres",
@@ -263,6 +264,12 @@
     "default": {
       "title": "Utilisateurs & Groupes",
       "message": "Vous pouvez consulter ici les informations sur les utilisateurs et les groupes."
+    }
+  },
+  "evaluation": {
+    "default": {
+      "title": "Évaluations",
+      "message": "Ici, vous pouvez voir des informations sur l'élève que vous évaluez."
     }
   },
   "settings": {
