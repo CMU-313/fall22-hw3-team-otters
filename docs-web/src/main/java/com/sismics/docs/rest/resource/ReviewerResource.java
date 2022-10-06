@@ -1,7 +1,6 @@
 package com.sismics.docs.rest.resource;
 
 import com.google.common.base.Strings;
-import com.sismics.docs.core.constant.Constants;
 import com.sismics.docs.core.dao.*;
 import com.sismics.docs.core.dao.criteria.ReviewerCriteria;
 import com.sismics.docs.core.dao.dto.ReviewerDto;
@@ -150,7 +149,7 @@ public class ReviewerResource extends BaseResource {
             throw new ClientException("UserNotFound", "The user does not exist");
         }
 
-        // Update the user
+        // Update the reviewer
         if (Strings.isNullOrEmpty(skillScoreStr)) {
             rev.setSkillScore(rev.getSkillScore());
         } else {
@@ -207,11 +206,6 @@ public class ReviewerResource extends BaseResource {
             throw new ForbiddenClientException();
         }
         checkBaseFunction(BaseFunction.ADMIN);
-
-        // Cannot delete the guest user
-        if (Constants.GUEST_USER_ID.equals(name)) {
-            throw new ClientException("ForbiddenError", "The guest user cannot be deleted");
-        }
 
         // Check that the reviewer exists
         ReviewerDao revDao = new ReviewerDao();
