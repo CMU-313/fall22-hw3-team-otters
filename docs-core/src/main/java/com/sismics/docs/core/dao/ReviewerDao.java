@@ -231,7 +231,7 @@ public class ReviewerDao {
      */
     public Integer getAverageSkillScore() {
         EntityManager em = ThreadLocalContext.get().getEntityManager();
-        Query query = em.createNativeQuery("select avg(u.REV_SKILLS_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        Query query = em.createNativeQuery("select avg(u.REV_SKILLS_N) from T_REV u where u.REV_DELETEDATE_D is null");
         return ((Number) query.getSingleResult()).intValue();
     }
 
@@ -242,7 +242,7 @@ public class ReviewerDao {
      */
     public Integer getAverageExperienceScore() {
         EntityManager em = ThreadLocalContext.get().getEntityManager();
-        Query query = em.createNativeQuery("select avg(u.REV_EXPERIENCE_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        Query query = em.createNativeQuery("select avg(u.REV_EXPERIENCE_N) from T_REV u where u.REV_DELETEDATE_D is null");
         return ((Number) query.getSingleResult()).intValue();
     }
 
@@ -253,7 +253,7 @@ public class ReviewerDao {
      */
     public Integer getAverageHire() {
         EntityManager em = ThreadLocalContext.get().getEntityManager();
-        Query query = em.createNativeQuery("select avg(u.REV_HIRE_N) from T_REV u where u.USE_DELETEDATE_D is null");
+        Query query = em.createNativeQuery("select avg(u.REV_HIRE_N) from T_REV u where u.REV_DELETEDATE_D is null");
         return ((Number) query.getSingleResult()).intValue();
     }
 }
