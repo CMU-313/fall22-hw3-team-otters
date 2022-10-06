@@ -76,6 +76,36 @@ public class ClientUtil {
         // Logout admin
         logout(adminToken);
     }
+
+    /**
+     * Creates a reviewer.
+     * 
+     * @param name Name
+     */
+    public void createReviewer(String name) {
+        // Create the reviewer
+        resource.path("/reviewer").request()
+                .put(Entity.form(new Form()
+                        .param("name", name)
+                        .param("skill_score", null)
+                        .param("experience_score", null)
+                        .param("skill_score", null)));
+    }
+
+     /**
+     * Creates a reviewer with score values.
+     * 
+     * @param name Name
+     */
+    public void createReviewerValues(String name, String skillScoreStr, String experienceScoreStr, String hireStr) {
+        // Create the reviewer
+        resource.path("/reviewer").request()
+                .put(Entity.form(new Form()
+                        .param("name", name)
+                        .param("skill_score", skillScoreStr)
+                        .param("experience_score", experienceScoreStr)
+                        .param("skill_score", hireStr)));
+    }
     
     /**
      * Creates a group.
