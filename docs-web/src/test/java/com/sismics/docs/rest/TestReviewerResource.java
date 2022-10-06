@@ -60,16 +60,16 @@ public class TestReviewerResource extends BaseJerseyTest {
         // Check bob reviewer information
         json = target().path("/reviewer/bob").request()
                 .get(JsonObject.class);
-                Assert.assertEquals(3, json.getJsonNumber("skill_score").intValue());
-                Assert.assertEquals(3, json.getJsonNumber("experience_score").intValue());
+                Assert.assertEquals(4, json.getJsonNumber("skill_score").intValue());
+                Assert.assertEquals(4, json.getJsonNumber("experience_score").intValue());
                 Assert.assertEquals(1, json.getJsonNumber("hire").intValue());
         
         // Check the average of reviews
         json = target().path("/reviewer/average").request()
                 .get(JsonObject.class);
-                Assert.assertEquals("1.5", json.getJsonNumber("skill_score").intValue());
-                Assert.assertEquals("1.5", json.getJsonNumber("experience_score").intValue());
-                Assert.assertEquals("0", json.getJsonNumber("hire").intValue());
+                Assert.assertEquals(2, json.getJsonNumber("skill_score").intValue());
+                Assert.assertEquals(2, json.getJsonNumber("experience_score").intValue());
+                Assert.assertEquals(0, json.getJsonNumber("hire").intValue());
 
         // Delete reviewer alice
         target().path("/reviewer/alice").request()
@@ -78,18 +78,33 @@ public class TestReviewerResource extends BaseJerseyTest {
         // Create a reviewer sandy OK
         form = new Form()
         .param("name", "sandy")
-        .param("skill_score", "5")
-        .param("experience_score", "5")
-        .param("hire", "1");
+        .param("skill_score", "2")
+        .param("experience_score", "2")
+        .param("hire", "-1");
         target().path("/reviewer").request()
         .put(Entity.form(form), JsonObject.class);
 
         // Check the average of reviews
         json = target().path("/reviewer/average").request()
                 .get(JsonObject.class);
-                Assert.assertEquals("4", json.getJsonNumber("skill_score").intValue());
-                Assert.assertEquals("4", json.getJsonNumber("experience_score").intValue());
-                Assert.assertEquals("1", json.getJsonNumber("hire").intValue());
+                Assert.assertEquals(3, json.getJsonNumber("skill_score").intValue());
+                Assert.assertEquals(3, json.getJsonNumber("experience_score").intValue());
+                Assert.assertEquals(0, json.getJsonNumber("hire").intValue());
 
+        // Create a reviewer kyle OK
+        form = new Form()
+        .param("name", "kyle")
+        .param("skill_score", "3")
+        .param("experience_score", "0")
+        .param("hire", "0");
+        target().path("/reviewer").request()
+        .put(Entity.form(form), JsonObject.class);
+
+        // Check the average of reviews
+        json = target().path("/reviewer/average").request()
+                .get(JsonObject.class);
+                Assert.assertEquals(3, json.getJsonNumber("skill_score").intValue());
+                Assert.assertEquals(2, json.getJsonNumber("experience_score").intValue());
+                Assert.assertEquals(0, json.getJsonNumber("hire").intValue());
     }
 }
