@@ -39,6 +39,7 @@ Teedy is an open source, lightweight document management system for individuals 
 - Fully featured Android client
 - [Bulk files importer](https://github.com/sismics/docs/tree/master/docs-importer) (single or scan mode)
 - Tested to one million documents
+- [Evaluations page](https://github.com/sismics/docs/tree/master/docs-web) for reviewers to enter scores for applicants
 
 
 # Native Installation
