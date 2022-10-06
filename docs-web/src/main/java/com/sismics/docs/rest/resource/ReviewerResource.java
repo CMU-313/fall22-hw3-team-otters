@@ -82,13 +82,9 @@ public class ReviewerResource extends BaseResource {
         }
 
         if (Strings.isNullOrEmpty(hireStr)) {
-            rev.setHire(false);
+            rev.setHire(-1);
         } else {
-            Boolean hire = false;
-            Integer hireInt = ValidationUtil.validateInteger(hireStr, "hire");
-            if (hireInt != 0) {
-                hire = true;
-            }
+            Integer hire = ValidationUtil.validateInteger(hireStr, "hire");
             rev.setHire(hire);
         }
 
@@ -165,11 +161,7 @@ public class ReviewerResource extends BaseResource {
         if (Strings.isNullOrEmpty(hireStr)) {
             rev.setHire(rev.getHire());
         } else {
-            Integer hireInt = ValidationUtil.validateInteger(hireStr, "hire");
-            Boolean hire = false;
-            if (hireInt != 0) {
-                hire = true;
-            }
+            Integer hire = ValidationUtil.validateInteger(hireStr, "hire");
             rev.setHire(hire);
         }
 
@@ -337,20 +329,17 @@ public class ReviewerResource extends BaseResource {
             throw new ForbiddenClientException();
         }
         
-        JsonArrayBuilder reviewers = Json.createArrayBuilder();
         ReviewerDao revDao = new ReviewerDao();
         int skill_avg = revDao.getAverageSkillScore();
         int experience_avg = revDao.getAverageExperienceScore();
         int hire = revDao.getAverageHire(); // is this number out of 0-1 or 100?, how to do bools
         
-        reviewers.add(Json.createObjectBuilder()
+        JsonObjectBuilder response = Json.createObjectBuilder()
                 .add("name", "Average")
                 .add("skill_score", skill_avg)
                 .add("experience_score", experience_avg)
-                .add("hire", hire));
+                .add("hire", hire);
         
-        JsonObjectBuilder response = Json.createObjectBuilder()
-                .add("reviewers_avg", reviewers);
         return Response.ok().entity(response.build()).build();
     }
 
